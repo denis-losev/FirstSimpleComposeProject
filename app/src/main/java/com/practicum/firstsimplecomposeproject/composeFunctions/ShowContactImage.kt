@@ -20,7 +20,11 @@ import com.practicum.firstsimplecomposeproject.data.Contact
 @Composable
 fun ShowContactImage(contact: Contact) {
 
-    fun getInitials() = contact.name.take(1) + contact.surname?.take(1)
+    fun getInitials(): String {
+        val firstNameInitial = contact.name.take(1)
+        val surnameInitial = contact.surname?.take(1) ?: contact.familyName.take(1)
+        return firstNameInitial + surnameInitial
+    }
 
     Box(
         modifier = Modifier.padding(vertical = 16.dp),

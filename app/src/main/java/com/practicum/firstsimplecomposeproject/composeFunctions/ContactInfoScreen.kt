@@ -45,7 +45,11 @@ fun ContactInfoScreen(contact: Contact) {
             Text(
                 style = MaterialTheme.typography.h6,
                 fontWeight = FontWeight.Bold,
-                text = "${contact.name} ${contact.surname.orEmpty()}"
+                text = if (contact.surname != null) {
+                    "${contact.name} ${contact.surname}"
+                } else {
+                    contact.name
+                }
             )
         }
         Row(
